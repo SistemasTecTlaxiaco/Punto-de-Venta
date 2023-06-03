@@ -119,9 +119,9 @@
             this.label2.ForeColor = System.Drawing.Color.Magenta;
             this.label2.Location = new System.Drawing.Point(50, 117);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 17);
+            this.label2.Size = new System.Drawing.Size(29, 17);
             this.label2.TabIndex = 2;
-            this.label2.Text = "CAJA";
+            this.label2.Text = "login";
             // 
             // pictureBox2
             // 
@@ -160,6 +160,7 @@
             this.Name = "Categoria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Categoria";
+            this.Load += new System.EventHandler(this.Categoria_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cerrar2)).EndInit();
             this.panel2.ResumeLayout(false);

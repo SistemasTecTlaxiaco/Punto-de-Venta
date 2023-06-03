@@ -31,7 +31,16 @@ namespace projfinal
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-           
+            Registro cat= new Registro();
+            cat.Show();
+            this.Hide();
+        }
+
+        private void Categoria_Load(object sender, EventArgs e)
+        {
+            
+
+
         }
     }
 }

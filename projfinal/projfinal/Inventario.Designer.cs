@@ -60,25 +60,23 @@
             this.lbid = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.btpagar = new System.Windows.Forms.Button();
-            this.texttotal = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.btagragarproducto = new System.Windows.Forms.Button();
-            this.textcambio = new System.Windows.Forms.TextBox();
-            this.nudcantidadp = new System.Windows.Forms.NumericUpDown();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textefectivo = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.bteliP = new System.Windows.Forms.Button();
+            this.tpagar = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bbeliminar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textsubtotal = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textefectivo = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btpagar = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btagragarproducto = new System.Windows.Forms.Button();
+            this.textcambio = new System.Windows.Forms.TextBox();
+            this.nudcantidadp = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -88,8 +86,8 @@
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudcantidadp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudcantidadp)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -99,7 +97,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1358, 32);
+            this.panel1.Size = new System.Drawing.Size(1274, 32);
             this.panel1.TabIndex = 0;
             // 
             // btregreso
@@ -109,7 +107,7 @@
             this.btregreso.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.btregreso.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.btregreso.Font = new System.Drawing.Font("Yellowtail", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btregreso.Location = new System.Drawing.Point(1280, 3);
+            this.btregreso.Location = new System.Drawing.Point(1196, 0);
             this.btregreso.Name = "btregreso";
             this.btregreso.Size = new System.Drawing.Size(75, 26);
             this.btregreso.TabIndex = 23;
@@ -435,20 +433,19 @@
             this.panel5.Controls.Add(this.panel6);
             this.panel5.Location = new System.Drawing.Point(647, 43);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(700, 407);
+            this.panel5.Size = new System.Drawing.Size(612, 407);
             this.panel5.TabIndex = 2;
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.PowderBlue;
-            this.panel6.Controls.Add(this.textsubtotal);
-            this.panel6.Controls.Add(this.label3);
+            this.panel6.Controls.Add(this.bteliP);
+            this.panel6.Controls.Add(this.tpagar);
             this.panel6.Controls.Add(this.dataGridView1);
             this.panel6.Controls.Add(this.label2);
             this.panel6.Controls.Add(this.textefectivo);
             this.panel6.Controls.Add(this.label1);
             this.panel6.Controls.Add(this.btpagar);
-            this.panel6.Controls.Add(this.texttotal);
             this.panel6.Controls.Add(this.label7);
             this.panel6.Controls.Add(this.btagragarproducto);
             this.panel6.Controls.Add(this.textcambio);
@@ -456,8 +453,110 @@
             this.panel6.Controls.Add(this.label4);
             this.panel6.Location = new System.Drawing.Point(12, 13);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(672, 383);
+            this.panel6.Size = new System.Drawing.Size(579, 383);
             this.panel6.TabIndex = 0;
+            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
+            // 
+            // bteliP
+            // 
+            this.bteliP.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonFace;
+            this.bteliP.FlatAppearance.BorderSize = 0;
+            this.bteliP.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.bteliP.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.bteliP.Font = new System.Drawing.Font("Yellowtail", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bteliP.Location = new System.Drawing.Point(434, 52);
+            this.bteliP.Name = "bteliP";
+            this.bteliP.Size = new System.Drawing.Size(121, 26);
+            this.bteliP.TabIndex = 41;
+            this.bteliP.Text = "Eliminar Producto";
+            this.bteliP.UseVisualStyleBackColor = true;
+            this.bteliP.Click += new System.EventHandler(this.bteliP_Click);
+            // 
+            // tpagar
+            // 
+            this.tpagar.AutoSize = true;
+            this.tpagar.BackColor = System.Drawing.Color.White;
+            this.tpagar.ForeColor = System.Drawing.Color.Black;
+            this.tpagar.Location = new System.Drawing.Point(167, 347);
+            this.tpagar.Name = "tpagar";
+            this.tpagar.Size = new System.Drawing.Size(10, 13);
+            this.tpagar.TabIndex = 40;
+            this.tpagar.Text = "-";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5});
+            this.dataGridView1.Location = new System.Drawing.Point(14, 101);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(541, 183);
+            this.dataGridView1.TabIndex = 39;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Folio";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Nombre";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Precio";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "CantidadP";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "SubTotal";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(25, 52);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(89, 13);
+            this.label2.TabIndex = 38;
+            this.label2.Text = "Cntidad Producto";
+            // 
+            // textefectivo
+            // 
+            this.textefectivo.Location = new System.Drawing.Point(344, 311);
+            this.textefectivo.Name = "textefectivo";
+            this.textefectivo.Size = new System.Drawing.Size(120, 20);
+            this.textefectivo.TabIndex = 37;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(292, 314);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 13);
+            this.label1.TabIndex = 36;
+            this.label1.Text = "Efectivo";
             // 
             // btpagar
             // 
@@ -472,23 +571,16 @@
             this.btpagar.TabIndex = 35;
             this.btpagar.Text = "Pagar";
             this.btpagar.UseVisualStyleBackColor = true;
-            // 
-            // texttotal
-            // 
-            this.texttotal.Location = new System.Drawing.Point(168, 344);
-            this.texttotal.Name = "texttotal";
-            this.texttotal.Size = new System.Drawing.Size(100, 20);
-            this.texttotal.TabIndex = 34;
-            this.texttotal.Text = "0";
+            this.btpagar.Click += new System.EventHandler(this.btpagar_Click);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(80, 347);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(62, 13);
+            this.label7.Size = new System.Drawing.Size(74, 13);
             this.label7.TabIndex = 33;
-            this.label7.Text = "Total Pagar";
+            this.label7.Text = "Total Pagar $:";
             // 
             // btagragarproducto
             // 
@@ -538,111 +630,12 @@
             this.label4.TabIndex = 28;
             this.label4.Text = "Cambio";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(292, 314);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 13);
-            this.label1.TabIndex = 36;
-            this.label1.Text = "Efectivo";
-            // 
-            // textefectivo
-            // 
-            this.textefectivo.Location = new System.Drawing.Point(344, 311);
-            this.textefectivo.Name = "textefectivo";
-            this.textefectivo.Size = new System.Drawing.Size(120, 20);
-            this.textefectivo.TabIndex = 37;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 52);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 13);
-            this.label2.TabIndex = 38;
-            this.label2.Text = "Cntidad Producto";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.bbeliminar});
-            this.dataGridView1.Location = new System.Drawing.Point(14, 101);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(643, 183);
-            this.dataGridView1.TabIndex = 39;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Folio";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Nombre";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Precio";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "CantidadP";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "SubTotal";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // bbeliminar
-            // 
-            this.bbeliminar.HeaderText = "";
-            this.bbeliminar.Name = "bbeliminar";
-            this.bbeliminar.ReadOnly = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(80, 311);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 13);
-            this.label3.TabIndex = 40;
-            this.label3.Text = "SubTotal";
-            // 
-            // textsubtotal
-            // 
-            this.textsubtotal.Location = new System.Drawing.Point(168, 304);
-            this.textsubtotal.Name = "textsubtotal";
-            this.textsubtotal.Size = new System.Drawing.Size(100, 20);
-            this.textsubtotal.TabIndex = 41;
-            this.textsubtotal.Text = "0";
-            // 
             // Inventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Thistle;
-            this.ClientSize = new System.Drawing.Size(1358, 461);
+            this.ClientSize = new System.Drawing.Size(1274, 461);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -650,6 +643,7 @@
             this.Name = "Inventario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inventario";
+            this.Load += new System.EventHandler(this.Inventario_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -662,8 +656,8 @@
             this.panel5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudcantidadp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudcantidadp)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -702,7 +696,6 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btpagar;
-        private System.Windows.Forms.TextBox texttotal;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btagragarproducto;
         private System.Windows.Forms.TextBox textcambio;
@@ -712,13 +705,12 @@
         private System.Windows.Forms.TextBox textefectivo;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label tpagar;
+        private System.Windows.Forms.Button bteliP;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewButtonColumn bbeliminar;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textsubtotal;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySqlX.XDevAPI.Relational;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.WebRequestMethods;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace projfinal
 {
@@ -229,6 +231,33 @@ namespace projfinal
             LimpiarDatosProducto();
         }
 
+        
+
+
+        String id2, nombre;
+        decimal precio;
+        int cantidad;
+
+        float subtotal;
+        
+        private void btagragarproducto_Click(object sender, EventArgs e)
+        {
+
+            id2 = textid.Text;
+
+            nombre = textnombre.Text;
+
+            precio = Convert.ToDecimal(textprecio.Text);
+
+            cantidad = Convert.ToInt32(nudcantidadp.Text);
+
+            subtotal = (float)(precio * cantidad);
+
+            dataGridView1.Rows.Add(id2, nombre, precio, cantidad, subtotal);
+            
+            
+        }
+
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -237,94 +266,94 @@ namespace projfinal
             try
             {
 
-                textid.Text = dataGridView1.CurrentRow.Cells["Folio"].Value.ToString();
-                textnombre.Text = dataGridView1.CurrentRow.Cells["Nombre"].Value.ToString();
-                textprecio.Text = dataGridView1.CurrentRow.Cells["Precio"].Value.ToString();
-
-                DataGridViewRow fila = dataGridView1.Rows[e.RowIndex];
-                nudcantidadp.Text = Convert.ToString(fila.Cells["Cantidad"].Value);
-
-
-                calcularsubtotal();
+                id2 = dataGridView1.CurrentRow.Cells["Folio"].Value.ToString();
+                nombre = dataGridView1.CurrentRow.Cells["Nombre"].Value.ToString();
+                precio = (decimal)dataGridView1.CurrentRow.Cells["Precio"].Value;
+                cantidad = (int)dataGridView1.CurrentRow.Cells["Cantidad"].Value;
+                subtotal = (float)dataGridView1.CurrentRow.Cells["SubTotal"].Value;
 
             }
             catch
             {
 
             }
-
             
 
-
         }
+
 
         
 
-        private void calcularsubtotal()
+        private void panel6_Paint(object sender, PaintEventArgs e)
         {
-
-            int precio;
-            int cantidad;
-
-            if (!int.TryParse(textprecio.Text, out precio) || !int.TryParse(nudcantidadp.Text, out cantidad))
-            {
-                MessageBox.Show("Ingrese un precio y cantidad válidos");
-                return;
-            }
-
-            if (precio < cantidad)
-            {
-                int subtotal = cantidad * precio;
-                texttotal.Text = subtotal.ToString();
-            }
-
-
+            cototal();
+            efectivo();
         }
 
-            private void btagragarproducto_Click(object sender, EventArgs e)
+        public void cototal()
+
         {
 
+            decimal total = 0;
 
-            dataGridView1.Rows.Add(textid.Text, textnombre.Text, textprecio.Text, nudcantidadp.Text);
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                total += Convert.ToDecimal(row.Cells["Column5"].Value);
+            }
 
+            tpagar.Text = Convert.ToString(total);
 
         }
+        decimal pag;
+        decimal efec;
 
-        
+        public void efectivo()
 
-        private void calculartotal()
         {
-            /*decimal total = 0;
-
-            if(dataGridView1.Rows.Count > 0) 
+            try
             {
-                foreach (DataRow row in dataGridView1.Rows) 
-                {
-                    total + Convert.ToDecimal(dataGridView1.CurrentRow.Cells["SubTotal"].Value.InString());
-                }
-                texttotal.Text = total.ToString();
-            }*/
+                pag = Convert.ToDecimal(tpagar.Text);
 
+                efec = Convert.ToDecimal(textefectivo.Text);
+
+                
+            }
+            catch
+            {
+
+            }
+            textcambio.Text = Convert.ToString(efec - pag);
+        }
+
+        private void btpagar_Click(object sender, EventArgs e)
+        {
+
+            
+            this.Hide();
+            MessageBox.Show("Gracias por tu compra ");
+            
+            Inventario inv = new Inventario();
+            inv.Show();
+            this.Hide();
+        }
+
+        private void Inventario_Load(object sender, EventArgs e)
+        {
+            
+            
+        }
+
+        private void bteliP_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Remove(dataGridView1.CurrentRow);
         }
 
         private void dataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            if (e.RowIndex < 0)
-                return;
+            
 
-            if (e.ColumIndex == 5)
-            {
-                e.Paint(e.CellBounds, DataGridViewPaintPart.All);
-                var w = Proper.ties.Resources.delete25.winth;
-                var h = Proper.ties.Resources.delete25.Height;
-                var x = e.CellBounds.Left + (e.CellBounds.Winth - w) / 2;
-                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
-
-                e.Graphics.DrawImage(Properties.Resources.delete25, new Rectangle(x, y, w, h));
-                e.handled = true;
-            }
         }
-
-
+      
     }
 }
+
